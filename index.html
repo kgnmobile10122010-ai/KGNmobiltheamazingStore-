@@ -3,53 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KGN Mobile Care & Accessories</title>
+    <title>KGN Mobile Repair & The Amazing Store</title>
+    <!-- Font Awesome Icons for WhatsApp Logo and Section Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
-        header { background-color: #2c3e50; color: white; padding: 20px; font-size: 24px; font-weight: bold; }
-        .sub-header { background-color: #e74c3c; color: white; padding: 5px; font-size: 14px; }
-        .container { padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
-        .card { background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px; padding: 15px; width: 280px; text-align: center; }
-        .card h3 { color: #333; margin: 10px 0; }
-        .price { font-size: 18px; color: #27ae60; font-weight: bold; margin: 10px 0; }
-        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        .btn-whatsapp:hover { background-color: #128C7E; }
-        footer { background-color: #2c3e50; color: white; padding: 15px; margin-top: 30px; font-size: 14px; }
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #0ea5e9;
+            --accent-color: #22c55e;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            flex: 1;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .repair-card {
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .store-card {
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .repair-icon {
+            background: #e0f2fe;
+            color: var(--secondary-color);
+        }
+
+        .store-icon {
+            background: #dcfce7;
+            color: var(--accent-color);
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+        }
+
+        .tagline {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .repair-tag { color: #ea580c; }
+        .store-tag { color: #16a34a; }
+
+        ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary-color), #1e293b);
+            color: white;
+            padding: 35px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 15px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: scale(1.03);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+        }
     </style>
 </head>
 <body>
 
-    <header>KGN MOBILE CARE</header>
-    <div class="sub-header">All Types of Mobile Repairing & Premium Accessories</div>
+    <!-- Header Section -->
+    <header>
+        <h1>KGN Mobile Repair & The Amazing Store</h1>
+        <p>Dukaan Ek, Sections Alag — Aapka Trusted Mobile Hub</p>
+    </header>
 
-    <h2>Our Premium Products & Services</h2>
-    
-    <div class="container">
-        <div class="card">
-            <h3>Premium Mobile Covers</h3>
-            <p>Trending & Protective Back Covers for all models.</p>
-            <div class="price">Best Price Guaranteed</div>
-            <a href="https://wa.me/9110122010?text=Hello%20KGN%20Mobile,%20I%20want%20to%20buy%20Mobile%20Cover" target="_blank" class="btn-whatsapp">Order on WhatsApp</a>
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Welcome Intro -->
+        <div class="intro-card">
+            <h2 style="color: var(--primary-color); margin-top: 0;">Welcome To Our Store</h2>
+            <p style="font-size: 1.1rem; margin: 0;">Hamari dukaan ek hi location par hai. Aapki suvidha ke liye humne ise alag-alag expert sections mein baanta hai taaki aapko mile sabse behtareen service!</p>
         </div>
 
-        <div class="card">
-            <h3>Premium Folder / Combo</h3>
-            <p>100% High-Quality Display Touch Combos.</p>
-            <div class="price">Wholesale Rates</div>
-            <a href="https://wa.me/9110122010?text=Hello%20KGN%20Mobile,%20I%20want%20to%20ask%20about%20Combo/Folder" target="_blank" class="btn-whatsapp">Inquire Price</a>
+        <!-- Sections Grid -->
+        <div class="grid-container">
+            
+            <!-- Section 1: Aapka Section (KGN Mobile Repair) -->
+            <div class="card repair-card">
+                <div class="card-content">
+                    <div class="icon-box repair-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2>KGN Mobile Repair</h2>
+                    <p class="tagline repair-tag">🛠️ Professional Mobile Repairing Section</p>
+                    <p>Yahan par aapke mobile ki har dikkat ko dur kiya jaata hai. Hardware repair se lekar software maintenance tak ka saara kaam expert haathon se hota hai.</p>
+                    
+                    <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);">Main Services:</h4>
+                    <ul>
+                        <li>Premium Quality Display & Folder Replacement</li>
+                        <li>Motherboard Repairing & IC Level Work</li>
+                        <li>Original Battery & Charging Port Replacement</li>
+                        <li>Mobile Unlocking & Software Flashing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 2: Partner's Section (The Amazing Store) -->
+            <div class="card store-card">
+                <div class="card-content">
+                    <div class="icon-box store-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h2>The Amazing Store</h2>
+                    <p class="tagline store-tag">📱 Premium Gadgets & Accessories Section</p>
+                    <p>Yahan par aapko milenge sabse naye aur trending mobile covers, behtareen sound waale earbuds aur aapki har zaroorat ki gadgets aur accessories.</p>
+                    
+                    <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);">Main Products:</h4>
+                    <ul>
+                        <li>Latest, Stylish & Heavy-Duty Mobile Covers</li>
+                        <li>Premium Curved & Matte Tempered Glass</li>
+                        <li>Branded Smartwatches & Wireless Earbuds</li>
+                        <li>Superfast Chargers & High-Quality Data Cables</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Expert Mobile Repairing</h3>
-            <p>CPU, EMMC, Power IC & Glass Replacement Service.</p>
-            <div class="price">Fast Service</div>
-            <a href="https://wa.me/9110122010?text=Hello%20KGN%20Mobile,%20I%20want%20to%20repair%20my%20phone" target="_blank" class="btn-whatsapp">Contact Technician</a>
+        <!-- Location Box -->
+        <div class="contact-box">
+            <h3 style="margin-top: 0; font-size: 1.6rem;">📍 Ek Hi Chhat Ke Neeche</h3>
+            <p style="color: #cbd5e1; max-width: 700px; margin: 0 auto 15px auto;">Dukaan ek hi location par hai, isliye aapko kahin aur bhatakne ki zaroorat nahi. Ek hi jagah par phone repair bhi hoga aur saari accessories bhi milengi!</p>
+            
+            <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Dukaan Ki Location Ya Sampark Karein
+            </a>
         </div>
-    </div>
 
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2026 KGN Mobile Care. All Rights Reserved.</p>
-        <p>Visit us for the best mobile solutions!</p>
+        &copy; 2026 KGN Mobile Repair & The Amazing Store. All Rights Reserved.
     </footer>
 
 </body>
