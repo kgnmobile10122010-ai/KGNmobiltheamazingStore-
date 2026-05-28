@@ -1,261 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KGN Mobile Repair & The Amazing Store</title>
-    <!-- Font Awesome Icons for WhatsApp Logo and Section Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>केजीएन मोबाइल रिपेयर और द अमेजिंग स्टोर</title>
+    <!-- Tailwind CSS for modern and fast UI -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #0f172a;
-            --secondary-color: #0ea5e9;
-            --accent-color: #22c55e;
-            --bg-color: #f8fafc;
-            --text-color: #334155;
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.4);
         }
-
-        body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+        .offer-badge {
+            animation: pulse 2s infinite;
         }
-        
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin: 10px 0 0 0;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            box-sizing: border-box;
-            flex: 1;
-        }
-
-        .intro-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .repair-card {
-            border-top: 5px solid var(--secondary-color);
-        }
-
-        .store-card {
-            border-top: 5px solid var(--accent-color);
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .repair-icon {
-            background: #e0f2fe;
-            color: var(--secondary-color);
-        }
-
-        .store-icon {
-            background: #dcfce7;
-            color: var(--accent-color);
-        }
-
-        .card h2 {
-            color: var(--primary-color);
-            margin: 0 0 10px 0;
-        }
-
-        .tagline {
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .repair-tag { color: #ea580c; }
-        .store-tag { color: #16a34a; }
-
-        ul {
-            padding-left: 20px;
-            line-height: 1.8;
-        }
-
-        .contact-box {
-            background: linear-gradient(135deg, var(--primary-color), #1e293b);
-            color: white;
-            padding: 35px 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            background: #25D366;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: background 0.2s, transform 0.2s;
-            margin-top: 15px;
-        }
-
-        .whatsapp-btn:hover {
-            background: #20ba5a;
-            transform: scale(1.03);
-        }
-
-        .whatsapp-btn i {
-            margin-right: 10px;
-            font-size: 1.4rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #e2e8f0;
-            background: white;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-900 text-white font-sans">
 
-    <!-- Header Section -->
-    <header>
-        <h1>KGN Mobile Repair & The Amazing Store</h1>
-        <p>Dukaan Ek, Sections Alag — Aapka Trusted Mobile Hub</p>
+    <!-- TOP FLASHING OFFER BANNER -->
+    <div class="bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 text-center py-2 px-4 text-sm font-bold tracking-wide sticky top-0 z-50 shadow-lg">
+        <span class="offer-badge inline-block bg-white text-red-600 px-2 py-0.5 rounded-full text-xs mr-2 animate-bounce">MEGA SALE</span> 
+        धमाका ऑफर: हर डिस्प्ले रिप्लेसमेंट पर Tempered Glass बिल्कुल FREE! 🎁
+    </div>
+
+    <!-- HERO HEADER -->
+    <header class="bg-gradient-to-b from-blue-950 to-slate-950 text-center py-12 px-4 border-b border-blue-900/50">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 neon-glow mb-4">
+            केजीएन मोबाइल रिपेयर और द अमेजिंग स्टोर
+        </h1>
+        <p class="text-amber-400 text-lg md:text-xl font-medium max-w-2xl mx-auto border-y border-amber-500/30 py-2">
+            दुकान एक, सेक्शन अलग - आपका विश्वसनीय मोबाइल हब
+        </p>
+        <p class="text-slate-400 mt-4 text-sm max-w-md mx-auto">
+            हमारी दुकान एक ही लोकेशन पर है। आपकी सुविधा के लिए हमने इसे अलग-अलग विशेषज्ञ वर्गों में बांटा है ताकि आपको मिले सबसे बेहतर सेवा!
+        </p>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        
-        <!-- Welcome Intro -->
-        <div class="intro-card">
-            <h2 style="color: var(--primary-color); margin-top: 0;">Welcome To Our Store</h2>
-            <p style="font-size: 1.1rem; margin: 0;">Hamari dukaan ek hi location par hai. Aapki suvidha ke liye humne ise alag-alag expert sections mein baanta hai taaki aapko mile sabse behtareen service!</p>
-        </div>
+    <main class="max-w-7xl mx-auto px-4 py-12 space-y-16">
 
-        <!-- Sections Grid -->
-        <div class="grid-container">
+        <!-- SECTION 1: KGN MOBILE REPAIR (SERVICES) -->
+        <section class="bg-slate-900/60 border border-blue-500/20 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-sm">
+            <div class="flex items-center space-x-4 mb-8">
+                <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-xl shadow-lg shadow-blue-500/30">
+                    <i class="fas fa-tools text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">केजीएन मोबाइल रिपेयर</h2>
+                    <p class="text-sm text-cyan-400 font-medium">🛠️ पेशेवर मोबाइल मरम्मत अनुभाग</p>
+                </div>
+            </div>
             
-            <!-- Section 1: Aapka Section (KGN Mobile Repair) -->
-            <div class="card repair-card">
-                <div class="card-content">
-                    <div class="icon-box repair-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h2>KGN Mobile Repair</h2>
-                    <p class="tagline repair-tag">🛠️ Professional Mobile Repairing Section</p>
-                    <p>Yahan par aapke mobile ki har dikkat ko dur kiya jaata hai. Hardware repair se lekar software maintenance tak ka saara kaam expert haathon se hota hai.</p>
-                    
-                    <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);">Main Services:</h4>
-                    <ul>
-                        <li>Premium Quality Display & Folder Replacement</li>
-                        <li>Motherboard Repairing & IC Level Work</li>
-                        <li>Original Battery & Charging Port Replacement</li>
-                        <li>Mobile Unlocking & Software Flashing</li>
-                    </ul>
+            <p class="text-slate-300 mb-8 max-w-3xl leading-relaxed">
+                यहां पर आपके मोबाइल की हर दिक्कत को दूर किया जाता है। हार्डवेयर रिपेयर से लेकर सॉफ्टवेयर मेंटेनेंस तक का सारा काम एक्सपर्ट हाथों से होता है।
+            </p>
+
+            <!-- REPAIR CATEGORIES GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Fresh vs Crack Display -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all duration-300">
+                    <span class="bg-red-500/10 text-red-400 text-xs font-bold px-2.5 py-1 rounded-md float-right">Best Offer</span>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3"><i class="fas fa-mobile-alt text-cyan-400 mr-2"></i> डिस्प्ले रिप्लेसमेंट (Android & iPhone)</h3>
+                    <p class="text-sm text-slate-400 mb-4">क्या आपका डिस्प्ले क्रैक (Crack Display) हो गया है? हमारे पास ओरिजिनल फ्रेश डिस्प्ले (Fresh Display) तुरंत उचित दाम पर लगाए जाते हैं।</p>
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Display Change Ka Offer Janna Hai" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">रेट पता करें <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Motherboards -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all duration-300">
+                    <span class="bg-amber-500/10 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md float-right">IC Level Expert</span>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3"><i class="fas fa-microchip text-cyan-400 mr-2"></i> मदरबोर्ड मरम्मत और रिप्लेसमेंट</h3>
+                    <p class="text-sm text-slate-400 mb-4">डेड मोबाइल या डैमेज मदरबोर्ड (Damaged Motherboard) को ठीक कराएं। हमारे पास फ्रेश मदरबोर्ड (Fresh Motherboard) भी उपलब्ध हैं।</p>
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Motherboard Repair Ka Offer Janna Hai" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">रेट पता करें <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Repairing Tools -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all duration-300">
+                    <span class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-md float-right">For Technicians</span>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3"><i class="fas fa-screwdriver text-cyan-400 mr-2"></i> मोबाइल रिपेयरिंग टूल्स (Tools)</h3>
+                    <p class="text-sm text-slate-400 mb-4">मैकेनिक भाइयों के लिए बेस्ट क्वालिटी के रिपेयरिंग टूल्स, सोल्डरिंग आयरन, और सेपरेटर मशीनें स्पेशल डिस्काउंट पर उपलब्ध हैं।</p>
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Repairing Tools Ka Offer Janna Hai" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">कैटलॉग देखें <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Software & Unlocking -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all duration-300">
+                    <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-2.5 py-1 rounded-md float-right">Instant</span>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3"><i class="fas fa-unlock-alt text-cyan-400 mr-2"></i> मोबाइल अनलॉकिंग और फ्लैशिंग</h3>
+                    <p class="text-sm text-slate-400 mb-4">सभी प्रकार के एंड्रॉइड और आईफोन का लॉक तोड़ना, सॉफ्टवेयर फ्लैशिंग और कंट्री लॉक हटाने का काम 100% सेफ तरीके से।</p>
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Mobile Unlocking Ka Rate Janna Hai" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">पूछताछ करें <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: THE AMAZING STORE (PRODUCTS & GADGETS) -->
+        <section class="space-y-10">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-xl shadow-lg shadow-amber-500/30">
+                    <i class="fas fa-shopping-bag text-slate-950"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">द अमेजिंग स्टोर</h2>
+                    <p class="text-sm text-amber-400 font-medium">🛍️ प्रीमियम मोबाइल एक्सेसरीज और ट्रेंडी गैजेट्स</p>
                 </div>
             </div>
 
-            <!-- Section 2: Partner's Section (The Amazing Store) -->
-            <div class="card store-card">
-                <div class="card-content">
-                    <div class="icon-box store-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h2>The Amazing Store</h2>
-                    <p> class="tagline store-tag">📱 Premium Gadgets & Accessories Section</p>
-                    <p>Yahan par aapko milenge sabse naye aur trending mobile covers, behtareen sound waale earbuds aur aapki har zaroorat ki gadgets aur accessories.</p>
+            <!-- PRODUCT SUB-SECTIONS -->
+            
+            <!-- SUB-GRID 1: COVERS & GLASSES -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-slate-300 border-l-4 border-amber-500 pl-3">📱 मोबाइल कवर्स और प्रोटेक्शन (फ्लैट 20% बंद)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     
-                    <h3 style="margin: 20px 0 10px 0; color: var(--primary-color);">मुख्य उत्पाद:</h3>
-              
-                    <ul>
-                        <li>Latest, Stylish & Heavy-Duty Mobile Covers</li>
-                        <li>Premium Curved & Matte Tempered Glass</li>
-                        <li>Branded Smartwatches & Wireless Earbuds</li>
-                        <li>Superfast Chargers & High-Quality Data Cables</li>
-                    </ul>
+                    <!-- Item 1 -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-square bg-slate-900 rounded-xl mb-3 flex items-center justify-center border border-slate-800 text-slate-600 relative overflow-hidden">
+                                <span class="absolute top-2 left-2 bg-red-500 text-white font-bold text-[10px] px-1.5 py-0.5 rounded">Hot</span>
+                                <i class="fas fa-mobile-alt text-4xl text-slate-700"></i>
+                                <!-- <img src="YOUR_IMAGE_URL" alt="Normal Cover" class="object-cover w-full h-full"> -->
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">ट्रेन्डिंग नॉर्मल कवर्स</h4>
+                            <p class="text-xs text-amber-400 font-semibold mt-1">Starting ₹99 Only</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Normal Cover Ke Designs Dekhne Hai" class="mt-3 block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2 rounded-xl transition-colors"><i class="fab fa-whatsapp mr-1"></i> फोटो मंगाए</a>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-square bg-slate-900 rounded-xl mb-3 flex items-center justify-center border border-slate-800 text-slate-600 relative overflow-hidden">
+                                <span class="absolute top-2 left-2 bg-blue-500 text-white font-bold text-[10px] px-1.5 py-0.5 rounded">Premium</span>
+                                <i class="fab fa-apple text-4xl text-slate-700"></i>
+                                <!-- <img src="YOUR_IMAGE_URL" alt="iPhone Cover" class="object-cover w-full h-full"> -->
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">Luxury iPhone Covers</h4>
+                            <p class="text-xs text-amber-400 font-semibold mt-1">Special Offers Inside</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe iPhone Cover Ke Designs Aur Offers Janna Hai" class="mt-3 block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2 rounded-xl transition-colors"><i class="fab fa-whatsapp mr-1"></i> ऑफर देखें</a>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-square bg-slate-900 rounded-xl mb-3 flex items-center justify-center border border-slate-800 text-slate-600 relative overflow-hidden">
+                                <span class="absolute top-2 left-2 bg-pink-500 text-white font-bold text-[10px] px-1.5 py-0.5 rounded">Cute</span>
+                                <i class="fas fa-heart text-4xl text-slate-700"></i>
+                                <!-- <img src="YOUR_IMAGE_URL" alt="Girls Cover" class="object-cover w-full h-full"> -->
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">Fancy Girls Covers</h4>
+                            <p class="text-xs text-amber-400 font-semibold mt-1">Stylish & Protective</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Girls Fancy Cover Ke Designs Dekhne Hai" class="mt-3 block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2 rounded-xl transition-colors"><i class="fab fa-whatsapp mr-1"></i> फोटो मंगाए</a>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-square bg-slate-900 rounded-xl mb-3 flex items-center justify-center border border-slate-800 text-slate-600 relative overflow-hidden">
+                                <span class="absolute top-2 left-2 bg-amber-500 text-slate-950 font-bold text-[10px] px-1.5 py-0.5 rounded">1+1 Combo</span>
+                                <i class="fas fa-shield-alt text-4xl text-slate-700"></i>
+                                <!-- <img src="YOUR_IMAGE_URL" alt="Glass" class="object-cover w-full h-full"> -->
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">Tempered, Matt & Membran</h4>
+                            <p class="text-xs text-amber-400 font-semibold mt-1">होलसेल दाम पर उपलब्ध</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Tempered/Matt Glass Ka Rate Janna Hai" class="mt-3 block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2 rounded-xl transition-colors"><i class="fab fa-whatsapp mr-1"></i> प्राइस लिस्ट</a>
+                    </div>
+
                 </div>
             </div>
 
-        </div>
+            <!-- SUB-GRID 2: CHARGERS & POWER TECH -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-slate-300 border-l-4 border-amber-500 pl-3">⚡ चार्जिंग और पावर बैंक (6 महीने की गारंटी)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-[4/3] bg-slate-900 rounded-xl mb-3 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-bolt text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">फास्ट डेटा केबल (Data Cables)</h4>
+                            <p class="text-xs text-slate-400 mt-1">High Speed Type-C & iPhone</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Fast Data Cable Chahiye" class="mt-3 block w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2 rounded-xl transition-colors">अभी खरीदें</a>
+                    </div>
 
-        <!-- Location Box -->
-        <div class="contact-box">
-            <h3 style="margin-top: 0; font-size: 1.6rem;">📍 Ek Hi Chhat Ke Neeche</h3>Contact Us
-            <p style="color: #cbd5e1; max-width: 700px; margin: 0 auto 15px auto;">Dukaan ek hi location par hai, isliye aapko kahin aur bhatakne ki zaroorat nahi. Ek hi jagah par phone repair bhi hoga aur saari accessories bhi milengi!</p>
-            
-            <a href="https://wa.me/919661057698" target="_blank" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> Dukaan Ki Location Ya Sampark Karein
-            </a>
-        </div>
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-[4/3] bg-slate-900 rounded-xl mb-3 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-plug text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">ब्रांडेड फास्ट चार्जर (Chargers)</h4>
+                            <p class="text-xs text-slate-400 mt-1">SuperVOOC, Warp & PD Chargers</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Charger Ka Price Janna Hai" class="mt-3 block w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2 rounded-xl transition-colors">ऑफर प्राइस</a>
+                    </div>
+
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between col-span-2 md:col-span-1">
+                        <div>
+                            <div class="aspect-[4/3] bg-slate-900 rounded-xl mb-3 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-battery-full text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-200">हैवी पावर बैंक (Power Banks)</h4>
+                            <p class="text-xs text-slate-400 mt-1">10000mAh & 20000mAh Fast Charging</p>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Power Bank Par Offer Batayein" class="mt-3 block w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2 rounded-xl transition-colors">ऑफर प्राइस</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SUB-GRID 3: UNLIMITED GADGETS & SOUND -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-slate-300 border-l-4 border-amber-500 pl-3">🛸 अमेजिंग गैजेट्स और डिजिटल गिफ्ट्स</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    
+                    <!-- Drone Camera -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between hover:scale-105 transition-transform">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-2 flex items-center justify-center text-slate-700">
+                            <i class="fas fa-helicopter text-3xl text-amber-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-200">स्मार्ट ड्रोन कैमरा (Drone Camera)</h4>
+                        <span class="text-[11px] bg-amber-500/10 text-amber-400 rounded py-0.5 mt-1 font-semibold">Special Gift Item</span>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Drone Camera Ka Price Aur Video Bhejiye" class="mt-2 text-xs bg-emerald-600 py-1.5 rounded-lg font-bold"><i class="fab fa-whatsapp"></i> Price</a>
+                    </div>
+
+                    <!-- Lights & Digital Gifts -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between hover:scale-105 transition-transform">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-2 flex items-center justify-center text-slate-700">
+                            <i class="fas fa-lightbulb text-3xl text-yellow-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-200">फैंसी लाइट्स & डिजिटल गिफ्ट्स</h4>
+                        <span class="text-[11px] bg-purple-500/10 text-purple-400 rounded py-0.5 mt-1 font-semibold">Trending Decor</span>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Fancy Lights Ke Unique Items Dikhaen" class="mt-2 text-xs bg-emerald-600 py-1.5 rounded-lg font-bold"><i class="fab fa-whatsapp"></i> Price</a>
+                    </div>
+
+                    <!-- Speakers & Sound -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between hover:scale-105 transition-transform">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-2 flex items-center justify-center text-slate-700">
+                            <i class="fas fa-volume-up text-3xl text-cyan-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-200">धमाकेदार स्पीकर बॉक्स (Speakers)</h4>
+                        <span class="text-[11px] bg-cyan-500/10 text-cyan-400 rounded py-0.5 mt-1 font-semibold">Extra Bass Guaranteed</span>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mujhe Speaker Box Ke Offers Janna Hai" class="mt-2 text-xs bg-emerald-600 py-1.5 rounded-lg font-bold"><i class="fab fa-whatsapp"></i> Price</a>
+                    </div>
+
+                    <!-- Mobile Box & Accessories Combo -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center flex flex-col justify-between hover:scale-105 transition-transform">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-2 flex items-center justify-center text-slate-700">
+                            <i class="fas fa-box-open text-3xl text-emerald-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-200">मोबाइल बॉक्स और कॉम्बो पैक्स</h4>
+                        <span class="text-[11px] bg-emerald-500/10 text-emerald-400 rounded py-0.5 mt-1 font-semibold">Perfect For Gifting</span>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hi, Mobile Box Combo Offers Bataiye" class="mt-2 text-xs bg-emerald-600 py-1.5 rounded-lg font-bold"><i class="fab fa-whatsapp"></i> Price</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2026 KGN Mobile Repair & The Amazing Store. All Rights Reserved.
+    <!-- FOOTER WITH CONTACT & MAPS INFO -->
+    <footer class="bg-slate-950 border-t border-slate-800 mt-20 py-10 text-center text-slate-400 px-4 text-sm">
+        <p class="font-bold text-white mb-2 text-base">📍 हमारे स्टोर पर आएं</p>
+        <p class="mb-4">अपनी मनपसंद एक्सेसरी खरीदने या बेस्ट रिपेयरिंग सर्विस के लिए आज ही पधारें।</p>
+        <div class="flex justify-center space-x-4 mb-6">
+            <a href="https://wa.me/91XXXXXXXXXX" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center"><i class="fab fa-whatsapp mr-1.5 text-base"></i> WhatsApp चैट</a>
+            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center"><i class="fas fa-map-marker-alt mr-1.5 text-base"></i> दुकान का लोकेशन</a>
+        </div>
+        <p class="text-xs text-slate-600">&copy; 2026 केजीएन मोबाइल केयर और द अमेजिंग स्टोर. All Rights Reserved.</p>
     </footer>
 
 </body>
